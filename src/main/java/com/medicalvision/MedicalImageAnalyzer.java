@@ -13,8 +13,10 @@ import org.opencv.imgproc.Imgproc;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 
+// represents the medical image analyzer that identifies abnormalities (potential tumor/other disease)  
 public class MedicalImageAnalyzer {
 
+    // EFFECTS: Converts BufferedImage to OpenCV Mat
     private Mat bufferedImgToMat(BufferedImage image) {
         int width = image.getWidth();
         int height = image.getHeight();
@@ -39,6 +41,7 @@ public class MedicalImageAnalyzer {
         return mat;
     }
 
+    // EFFECTS: Converts OpenCV Mat to BufferedImage
     private BufferedImage matToBufferedImage(Mat mat) {
         int width = mat.width();
         int height = mat.height();
@@ -49,6 +52,8 @@ public class MedicalImageAnalyzer {
         return image;
     }
 
+
+    // EFFECTS: Analyzes uploaded image for medical abnormalities
     public BufferedImage analyzeImage(BufferedImage image) {
         Mat src = bufferedImgToMat(image);
         
