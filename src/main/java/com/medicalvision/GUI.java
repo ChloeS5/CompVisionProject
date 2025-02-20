@@ -10,7 +10,6 @@ import java.io.File;
 import com.medicalvision.ImageProcessor;
 import com.medicalvision.MedicalImageAnalyzer;
 
-// represents the graphical user interface
 public class GUI {
     private JFrame frame;
     private JButton uploadButton;
@@ -21,9 +20,6 @@ public class GUI {
     private ImageProcessor imageProcessor;
     private MedicalImageAnalyzer medicalAnalyzer;
 
-
-
-    // EFFECTS: creates the graphic user interface
     public void createAndShowGUI() {
         // Initialize components
         imageProcessor = new ImageProcessor();
@@ -86,4 +82,12 @@ public class GUI {
         buttonPanel.add(uploadButton);
         buttonPanel.add(analyzeButton);
         
-        frame.getContentPane().add(butt
+        frame.getContentPane().add(buttonPanel, BorderLayout.NORTH);
+        frame.getContentPane().add(imageLabel, BorderLayout.CENTER);
+        frame.getContentPane().add(scrollPane, BorderLayout.SOUTH);
+
+        // Display the window
+        frame.pack();
+        frame.setVisible(true);
+    }
+}
