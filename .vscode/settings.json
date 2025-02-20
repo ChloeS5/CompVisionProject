@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "src/main/java"
+    ],
+    "java.project.outputPath": "target/classes",
+    "java.project.referencedLibraries": [
+        "lib/opencv-4120.jar"
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic"
+}
