@@ -1,12 +1,13 @@
 package com.medicalvision;
 
-public class Main {
-    static {
-        System.load("/Users/chloesepulveda/opencv/build/lib/libopencv_java4120.dylib");
-    }
+// Triggers native load by touching any global class:
+import org.bytedeco.opencv.global.opencv_core; // fixes org.bytedeco issue
 
+public class Main {
     public static void main(String[] args) {
-        // Initialize the GUI
+        // Force class init -> loads bundled natives for the current OS/arch
+        opencv_core.getNumThreads(); //doesn't work becuase of bytedeco import.
+
         GUI gui = new GUI();
         gui.createAndShowGUI();
     }

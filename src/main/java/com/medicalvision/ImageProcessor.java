@@ -8,10 +8,11 @@ import org.opencv.core.Mat;
 import org.opencv.core.MatOfByte;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import org.bytedeco.opencv.global.opencv_core;
 
 public class ImageProcessor {
     static {
-        System.load("/Users/chloesepulveda/opencv/build/lib/libopencv_java4120.dylib");
+        opencv_core.getVersionString();
     }
 
     public BufferedImage processImage(BufferedImage image) {

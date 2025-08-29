@@ -1,0 +1,38 @@
+plugins {
+  id 'java'
+  id 'application'
+  id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group = 'com.medicalvision'
+
+java {
+  // Use 21 or 17—pick what you actually have installed.
+  toolchain { languageVersion = JavaLanguageVersion.of(21) }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  // ✅ Recommended (Bytedeco): bundles natives for macOS/Windows/Linux
+  implementation "org.bytedeco:opencv-platform:4.9.0-1.5.10"
+
+  // ── OR (classic org.opencv.* API) ─────────────────────────────
+  // implementation "org.openpnp:opencv:4.10.0-0"
+  // Use exactly ONE of the two options above. Never both.
+}
+
+application {
+  mainClass = "com.medicalvision.Main"
+}
+
+tasks.withType(Jar).configureEach {
+  archiveBaseName.set("CompVisionProject") // => build/libs/CompVisionProject.jar
+  archiveVersion.set("")
+}
+
+tasks.named("shadowJar") {
+  archiveClassifier.set("") // remove "-all"
+}
