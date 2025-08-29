@@ -3,3 +3,8 @@
 *.jar
 .gradle/
 .idea/
+/build/
+/target/
+*.jar
+.gradle/
+.idea/
